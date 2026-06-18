@@ -16,15 +16,15 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 const CARDS = [
-  { id: "c1", name: "迷子の魔法使い", emoji: "🧙", atk: 800, def: 600 },
-  { id: "c2", name: "老いた海賊", emoji: "🏴‍☠️", atk: 1200, def: 400 },
-  { id: "c3", name: "眠れない科学者", emoji: "🔬", atk: 600, def: 1100 },
-  { id: "c4", name: "時間泥棒", emoji: "⏰", atk: 1000, def: 800 },
-  { id: "c5", name: "孤独なロボット", emoji: "🤖", atk: 900, def: 1000 },
-  { id: "c6", name: "うそつきの王様", emoji: "👑", atk: 700, def: 1300 },
-  { id: "c7", name: "炎の戦士", emoji: "⚔️", atk: 1500, def: 300 },
-  { id: "c8", name: "氷の魔女", emoji: "🧊", atk: 500, def: 1400 },
-  { id: "c9", name: "風の使者", emoji: "💨", atk: 1100, def: 700 },
+  { id: "c1", name: "魔法使いの弟子 マナ", emoji: "🧙", atk: 2000, def: 1800 },
+  { id: "c2", name: "老いた海賊 ルヒィ", emoji: "🏴‍☠️", atk: 1200, def: 400 },
+  { id: "c3", name: "はぐれ研究員 さとる", emoji: "🔬", atk: 600, def: 1100 },
+  { id: "c4", name: "タイムパトロール トランクス", emoji: "⏰", atk: 1000, def: 800 },
+  { id: "c5", name: "孤独なロボット セブン", emoji: "🤖", atk: 700, def: 700 },
+  { id: "c6", name: "うそつきの王様 ガイア", emoji: "👑", atk: 100, def: 1300 },
+  { id: "c7", name: "炎の女戦士 ホムラ", emoji: "⚔️", atk: 3000, def: 2500 },
+  { id: "c8", name: "光の使者 ヒカリ", emoji: "🧊", atk: 4000, def: 2000 },
+  { id: "c9", name: "風の使者 スバル", emoji: "💨", atk: 1100, def: 700 },
 ];
 
 function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
