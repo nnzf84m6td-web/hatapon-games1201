@@ -182,8 +182,8 @@ const s = {
 function SoloGame({ playerName, onHome }) {
   const MAX_ROUNDS = 5;
   const [round, setRound] = useState(1);
-  const [hand] = useState(shuffle(CARDS).slice(0, 6));
-  const [aiHand] = useState(shuffle(CARDS).slice(0, 6));
+  const [hand, setHand] = useState(shuffle(CARDS).slice(0, 6));
+  const [aiHand, setAiHand] = useState(shuffle(CARDS).slice(0, 6));
   const [selectedCard, setSelectedCard] = useState(null);
   const [phase, setPhase] = useState("select");
   const [roundResult, setRoundResult] = useState(null);
@@ -205,7 +205,10 @@ function SoloGame({ playerName, onHome }) {
 
   const nextRound = () => {
     if (round >= MAX_ROUNDS) { setPhase("gameover"); return; }
-    setRound(r => r+1); setSelectedCard(null); setAiCard(null); setRoundResult(null); setPhase("select");
+    setRound(r => r+1);
+    setHand(shuffle(CARDS).slice(0, 6));
+    setAiHand(shuffle(CARDS).slice(0, 6));
+    setSelectedCard(null); setAiCard(null); setRoundResult(null); setPhase("select");
   };
 
   if (phase === "gameover") return <GameOver myName={playerName} oppName="🤖 AI" myScore={scores.player} oppScore={scores.ai} onHome={onHome} />;
@@ -282,6 +285,8 @@ function MultiGame({ playerName, onHome }) {
   const nextRound = async () => {
     if(round>=MAX_ROUNDS){setScreen("result");return;}
     const nr=round+1;setRound(nr);
+    setHand(shuffle(CARDS).slice(0, 6));
+    setSelectedCard(null);
     await set(ref(db,`rooms/${roomId}/p1/ready`),false);
     await set(ref(db,`rooms/${roomId}/p2/ready`),false);
     await set(ref(db,`rooms/${roomId}/p1/selected`),null);
